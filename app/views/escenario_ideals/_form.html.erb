@@ -1,0 +1,37 @@
+<%= form_for(@escenario_ideal) do |f| %>
+  <% if @escenario_ideal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@escenario_ideal.errors.count, "error") %> prohibited this escenario_ideal from being saved:</h2>
+
+      <ul>
+      <% @escenario_ideal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :descipcion %><br>
+    <%= f.text_area :descipcion %>
+  </div>
+  <div class="field">
+    <%= f.label :dificultad %><br>
+    <%= f.number_field :dificultad %>
+  </div>
+  <div class="field">
+    <%= f.label :script_maquinas %><br>
+    <%= f.text_area :script_maquinas %>
+  </div>
+  <div class="field">
+    <%= f.label :mv_array %><br>
+    <%= f.text_field :mv_array %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

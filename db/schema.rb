@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111214811) do
+ActiveRecord::Schema.define(version: 20150501150129) do
+
+  create_table "escenario_ideals", force: :cascade do |t|
+    t.string   "nombre"
+    t.text     "descipcion"
+    t.integer  "dificultad"
+    t.text     "script_maquinas"
+    t.string   "mv_array"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "escenarios", force: :cascade do |t|
+    t.integer  "id_escenario_ideal"
+    t.integer  "id_user"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "maquinas", force: :cascade do |t|
+    t.string   "nombre"
+    t.integer  "id_escenario"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content"

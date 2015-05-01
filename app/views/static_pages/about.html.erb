@@ -1,11 +1,71 @@
-<% provide(:title, "About") %>
-<h1>About</h1>
-<p>
-  The <a href="http://www.railstutorial.org/"><em>Ruby on Rails
-  Tutorial</em></a> is a 
-  <a href="http://www.railstutorial.org/book">book</a> and
-  <a href="http://screencasts.railstutorial.org/">screencast series</a>
-  to teach web development with 
-  <a href="http://rubyonrails.org/">Ruby on Rails</a>.
-  This is the sample application for the tutorial.
+<% provide(:title, "Sobre nosotros") %>
+<h1>Sobre nosotros</h1>
+<h3 align="middle">¿Quieres aprender a protegerte en la red?</h3>
+
+<h3 align="middle">Nosotros te enseñamos las reglas básicas del juego. Después, todo depende de ti.</h3>
+<br>
+<p align="center" href="#">
+<%= image_tag "seguridad.jpeg", class: "media-object"%>
 </p>
+<br>
+<br>
+
+<h3 align="middle">Equipo ENDER</h3>
+<br>
+<p>Somos un cinco jóvenes estudiantes de la Universidad Complutense de Madrid que trabajamos para facilitarte el apredizaje en cuestiones de seguridad informática.</p>
+
+
+
+<div class="row" >
+  <div class="col-xs-6 col-md-2">
+      <%= image_tag "fotoTodor.jpg", class: "img-circle" %>
+      <div class="caption">
+        <h3>Todor Nikolaev</h3>
+        <p class= "text-center"><%= image_tag "icon-mail.png", class: "img-circle"%> <%= image_tag "icon-in.png", class: "img-circle"%></p>
+      </div>
+  </div>
+  <div class="col-xs-6 col-md-2">
+      <%= image_tag "fotoJavi2.jpg", class: "img-circle"%>
+      <div class="caption">
+        <h3>Javier Serrano</h3>
+        <p class= "text-center"><%= image_tag "icon-mail.png", class: "img-circle"%> <%= image_tag "icon-in.png", class: "img-circle"%></p>
+      </div>
+  </div>
+  <div class="col-xs-6 col-md-2">
+      <%= image_tag "fotoIratxe.jpg", class: "img-circle"%>
+      <div class="caption">
+        <h3 class= "text-center">Iratxe González</h3>
+        <p class= "text-center"><%= image_tag "icon-mail.png", class: "img-circle"%> <%= image_tag "icon-in.png", class: "img-circle"%></p>
+      </div>
+  </div>
+  <div class="col-xs-6 col-md-2" >
+      <%= image_tag "fotoSergio.jpg", class: "img-circle"%>
+      <div class="caption">
+        <h3>Sergio Carvajal</h3>
+        <p class= "text-center"><%= image_tag "icon-mail.png", class: "img-circle"%> <%= image_tag "icon-in.png", class: "img-circle"%></p>
+      </div>
+  </div>
+  <div class="col-xs-6 col-md-2">
+      <%= image_tag "fotoDani.png", class: "img-circle"%>
+      <div class="caption">
+        <h3>Daniel García</h3>
+        <p class= "text-center"><%= image_tag "icon-mail.png", class: "img-circle"%> <%= image_tag "icon-in.png", class: "img-circle"%></p>
+      </div>
+  </div>
+
+</div>
+
+<br>
+<br>
+<br>
+<p>De un modo didáctico y a través de un juego, serás capaz de aprender los pilares básicos que sostienen la seguridad en el mundo tecnológico.</p>
+<p>Ender te traslada a un mundo virtual donde las amenazas son más reales de lo que puedas imaginar.</p>
+<p>Atacar, defender, todo vale. Conseguir el objetivo es tu misión.</p>
+<br>
+<h3 align="middle">¡Alístate cuanto antes, te esperamos!</h3>
+<br>
+<br>
+<div align="center">
+ <%= link_to "Regístrate en Ender", signup_path, class: "btn btn-lg btn-primary" %>
+
+</div>

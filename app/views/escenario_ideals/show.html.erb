@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @escenario_ideal.nombre %>
+</p>
+
+<p>
+  <strong>Descipcion:</strong>
+  <%= @escenario_ideal.descipcion %>
+</p>
+
+<p>
+  <strong>Dificultad:</strong>
+  <%= @escenario_ideal.dificultad %>
+</p>
+
+<p>
+  <strong>Script maquinas:</strong>
+  <%= @escenario_ideal.script_maquinas %>
+</p>
+
+<p>
+  <strong>Mv array:</strong>
+  <%= @escenario_ideal.mv_array %>
+</p>
+
+<%= link_to 'Edit', edit_escenario_ideal_path(@escenario_ideal) %> |
+<%= link_to 'Back', escenario_ideals_path %>

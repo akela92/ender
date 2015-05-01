@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Escenario Ideals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descipcion</th>
+      <th>Dificultad</th>
+      <th>Script maquinas</th>
+      <th>Mv array</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @escenario_ideals.each do |escenario_ideal| %>
+      <tr>
+        <td><%= escenario_ideal.nombre %></td>
+        <td><%= escenario_ideal.descipcion %></td>
+        <td><%= escenario_ideal.dificultad %></td>
+        <td><%= escenario_ideal.script_maquinas %></td>
+        <td><%= escenario_ideal.mv_array %></td>
+        <td><%= link_to 'Show', escenario_ideal %></td>
+        <td><%= link_to 'Edit', edit_escenario_ideal_path(escenario_ideal) %></td>
+        <td><%= link_to 'Destroy', escenario_ideal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Escenario ideal', new_escenario_ideal_path %>

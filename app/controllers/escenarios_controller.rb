@@ -1,6 +1,9 @@
 class EscenariosController < ApplicationController
   before_action :set_escenario, only: [:show, :edit, :update, :destroy]
-
+  #attr_accessible :id_escenario_ideal
+  #has_one :escenario_ideal
+  #has_many :maquina
+  #belongs_to :user
   # GET /escenarios
   # GET /escenarios.json
   def index

@@ -1,4 +1,4 @@
-<% provide(:title, 'Edit user') %>
+<% provide(:title, 'Editar usuario') %>
 <h1>Update your profile</h1>
 
 <div class="row">
@@ -6,19 +6,19 @@
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
     
-      <%= f.label :name %>
+      <%= f.label :nombre %>
       <%= f.text_field :name, class: 'form-control' %>
       
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
       
-      <%= f.label :password %>
+      <%= f.label :contraseña %>
       <%= f.password_field :password, class: 'form-control' %>
       
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation, "Confirmación" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
       
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
+      <%= f.submit "Guardar cambios", class: "btn btn-primary" %>
     <% end %>
     
     <div class="gravatar_edit">

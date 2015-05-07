@@ -1,35 +1,39 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'Escenarios') %>
+<h1>Escenarios</h1>
 
-<h1>Listing Escenario Ideals</h1>
+<ul class="media-list">
+<% @escenario_ideals.each do |escenario_ideal| %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Descipcion</th>
-      <th>Dificultad</th>
-      <th>Script maquinas</th>
-      <th>Mv array</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <li class="media">
+    <div class="media-left">
+      <a href="#">
+      <%= image_tag "fotoIratxe.jpg", class: "img-media" %>
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading"><%= escenario_ideal.nombre %></h4>
+      <%= escenario_ideal.descripcion %>
+      Dificultad: <%= escenario_ideal.dificultad %>
+    </div>
+  </li>
 
-  <tbody>
-    <% @escenario_ideals.each do |escenario_ideal| %>
-      <tr>
-        <td><%= escenario_ideal.nombre %></td>
-        <td><%= escenario_ideal.descipcion %></td>
-        <td><%= escenario_ideal.dificultad %></td>
-        <td><%= escenario_ideal.script_maquinas %></td>
-        <td><%= escenario_ideal.mv_array %></td>
-        <td><%= link_to 'Show', escenario_ideal %></td>
-        <td><%= link_to 'Edit', edit_escenario_ideal_path(escenario_ideal) %></td>
-        <td><%= link_to 'Destroy', escenario_ideal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+</ul>
 
-<br>
 
-<%= link_to 'New Escenario ideal', new_escenario_ideal_path %>
+<div class="btn-group" role="group" aria-label="...">
+<%= link_to "Lanzar", escenario_ideal_path(escenario_ideal), class: "btn btn-success", :type => "button"%>
+<%= link_to "Mostrar", escenario_ideal_path(escenario_ideal), class: "btn btn-default", :type => "button"%>  
+    
+             <%= link_to 'Editar', edit_escenario_ideal_path(escenario_ideal), :class => "btn btn-default", :role => "button"%>
+             <%= link_to 'Eliminar', escenario_ideal, method: :delete, data: { confirm: '¿Estás seguro/a?' }, :class => "btn btn-danger", :role => "button"%>
+             <a href="#" class="btn btn-default" role="button">Comprobar resultado</a>
+
+</div>
+<% end %>
+<div><p>
+
+<div class="well center-block" style="max-width: 400px;">
+      <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+      <button type="button" class="btn btn-default btn-lg btn-block">Block level button</button>
+    </div>
+<%= link_to 'Nuevo Escenario', new_escenario_ideal_path, :class => "btn btn-primary btn-lg", :type => "button"%>

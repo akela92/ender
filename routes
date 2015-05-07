@@ -1,0 +1,54 @@
+                 Prefix Verb   URI Pattern                             Controller#Action
+                   root GET    /                                       static_pages#home
+                   help GET    /help(.:format)                         static_pages#help
+                  about GET    /about(.:format)                        static_pages#about
+                contact GET    /contact(.:format)                      static_pages#contact
+                 signup GET    /signup(.:format)                       users#new
+                  login GET    /login(.:format)                        sessions#new
+                        POST   /login(.:format)                        sessions#create
+                 logout DELETE /logout(.:format)                       sessions#destroy
+             escenarios GET    /escenario_ideals(.:format)             escenario_ideals#index
+         following_user GET    /users/:id/following(.:format)          users#following
+         followers_user GET    /users/:id/followers(.:format)          users#followers
+                  users GET    /users(.:format)                        users#index
+                        POST   /users(.:format)                        users#create
+               new_user GET    /users/new(.:format)                    users#new
+              edit_user GET    /users/:id/edit(.:format)               users#edit
+                   user GET    /users/:id(.:format)                    users#show
+                        PATCH  /users/:id(.:format)                    users#update
+                        PUT    /users/:id(.:format)                    users#update
+                        DELETE /users/:id(.:format)                    users#destroy
+edit_account_activation GET    /account_activations/:id/edit(.:format) account_activations#edit
+        password_resets POST   /password_resets(.:format)              password_resets#create
+     new_password_reset GET    /password_resets/new(.:format)          password_resets#new
+    edit_password_reset GET    /password_resets/:id/edit(.:format)     password_resets#edit
+         password_reset PATCH  /password_resets/:id(.:format)          password_resets#update
+                        PUT    /password_resets/:id(.:format)          password_resets#update
+             microposts POST   /microposts(.:format)                   microposts#create
+              micropost DELETE /microposts/:id(.:format)               microposts#destroy
+          relationships POST   /relationships(.:format)                relationships#create
+           relationship DELETE /relationships/:id(.:format)            relationships#destroy
+               maquinas GET    /maquinas(.:format)                     maquinas#index
+                        POST   /maquinas(.:format)                     maquinas#create
+            new_maquina GET    /maquinas/new(.:format)                 maquinas#new
+           edit_maquina GET    /maquinas/:id/edit(.:format)            maquinas#edit
+                maquina GET    /maquinas/:id(.:format)                 maquinas#show
+                        PATCH  /maquinas/:id(.:format)                 maquinas#update
+                        PUT    /maquinas/:id(.:format)                 maquinas#update
+                        DELETE /maquinas/:id(.:format)                 maquinas#destroy
+                        GET    /escenarios(.:format)                   escenarios#index
+                        POST   /escenarios(.:format)                   escenarios#create
+          new_escenario GET    /escenarios/new(.:format)               escenarios#new
+         edit_escenario GET    /escenarios/:id/edit(.:format)          escenarios#edit
+              escenario GET    /escenarios/:id(.:format)               escenarios#show
+                        PATCH  /escenarios/:id(.:format)               escenarios#update
+                        PUT    /escenarios/:id(.:format)               escenarios#update
+                        DELETE /escenarios/:id(.:format)               escenarios#destroy
+       escenario_ideals GET    /escenario_ideals(.:format)             escenario_ideals#index
+                        POST   /escenario_ideals(.:format)             escenario_ideals#create
+    new_escenario_ideal GET    /escenario_ideals/new(.:format)         escenario_ideals#new
+   edit_escenario_ideal GET    /escenario_ideals/:id/edit(.:format)    escenario_ideals#edit
+        escenario_ideal GET    /escenario_ideals/:id(.:format)         escenario_ideals#show
+                        PATCH  /escenario_ideals/:id(.:format)         escenario_ideals#update
+                        PUT    /escenario_ideals/:id(.:format)         escenario_ideals#update
+                        DELETE /escenario_ideals/:id(.:format)         escenario_ideals#destroy

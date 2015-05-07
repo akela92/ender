@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
-  resources :maquinas
 
-  resources :escenarios
-
-  resources :escenario_ideals
-
+#Definir named routes
   root                'static_pages#home'
   get    'help'    => 'static_pages#help'
   get    'about'   => 'static_pages#about'
@@ -22,4 +18,7 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
+  resources :maquinas
+  resources :escenarios
+  resources :escenario_ideals
 end

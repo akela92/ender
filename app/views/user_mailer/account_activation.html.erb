@@ -1,10 +1,10 @@
-<h1>Sample App</h1>
+<h1>Ender</h1>
 
-<p>Hi <%= @user.name %>,</p>
+<p>Hola <%= @user.name %>,</p>
 
 <p>
-Welcome to the Sample App! Click on the link below to activate your account:
+¡Bienvenido a Ender! Pincha en el siguiente enlace para activar tu cuenta:
 </p>
 
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token, 
+<%= link_to "Activar", edit_account_activation_url(@user.activation_token, 
                                                     email: @user.email) %>

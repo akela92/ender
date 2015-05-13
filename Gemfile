@@ -35,3 +35,6 @@ group :production do
   gem 'rails_12factor', '0.0.2'
   gem 'puma',           '2.11.1'
 end
+
+# Gems used only for assets and not required
+# in production environments by default.

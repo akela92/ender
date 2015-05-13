@@ -60,15 +60,24 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'gentle-garden-7691.herokuapp.com'
+  host = 'ender.dacya.ucm.es'
   config.action_mailer.default_url_options = { host: host }
-  ActionMailer::Base.smtp_settings = {
+  /ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
     :authentication => :plain,
     :user_name      => ENV['SENDGRID_USERNAME'],
     :password       => ENV['SENDGRID_PASSWORD'],
     :domain         => 'heroku.com',
+    :enable_starttls_auto => true
+  }/
+
+ ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.mandrillapp.com',
+    :port           => '587',
+    :authentication => :login,
+    :user_name      => 'irrigona@hotmail.com',
+    :password       => 'nzu9PD2IZFC4jee-FumH6A',
     :enable_starttls_auto => true
   }
   

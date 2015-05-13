@@ -1,29 +1,36 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @escenario_ideal.nombre) %>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @escenario_ideal.nombre %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+   <strong><h2 class="panel-title"><%= @escenario_ideal.nombre %></h2></strong>
+  </div>
+  <div class="panel-body">
+<div class="row">
+<div class="col-md-3">
+ <%= image_tag "number1.jpg", class: "img-thumbnail"%></div>
+  <div class="col-md-9">
+    <div class="list-group">
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @escenario_ideal.descripcion %>
-</p>
+  <div class="list-group-item">
+    <!--<h4 class="list-group-item-heading">Descripción</h4>-->
+    <p class="text-justify"><%= @escenario_ideal.descripcion %></p>
+  </div>
+  <div class="list-group-item">
+    Dificultad <span class="badge"><%= @escenario_ideal.dificultad %></span> 
+</div>
+<!--<div class="list-group-item">
+    <strong><h4 class="list-group-item-heading">Escript Máquinas</h4></strong>
+    <p class="text-justify"><%= @escenario_ideal.script_maquinas %></p>
+  </div>
+<div class="list-group-item">
+    <strong><h4 class="list-group-item-heading">Mv array</h4></strong>
+    <p class="text-justify"><%= @escenario_ideal.mv_array %></p>
+  </div>-->
+  </div>
+</div>
+</div>
+  </div>
+</div>
 
-<p>
-  <strong>Dificultad:</strong>
-  <%= @escenario_ideal.dificultad %>
-</p>
-
-<p>
-  <strong>Script maquinas:</strong>
-  <%= @escenario_ideal.script_maquinas %>
-</p>
-
-<p>
-  <strong>Mv array:</strong>
-  <%= @escenario_ideal.mv_array %>
-</p>
-
-<%= link_to 'Edit', edit_escenario_ideal_path(@escenario_ideal) %> |
-<%= link_to 'Back', escenario_ideals_path %>
+ <%= link_to 'Editar', edit_escenario_ideal_path(@escenario_ideal) %> |
+<%= link_to 'Atrás', escenario_ideals_path %>

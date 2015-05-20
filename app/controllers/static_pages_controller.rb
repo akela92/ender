@@ -14,5 +14,6 @@ class StaticPagesController < ApplicationController
   end
   
   def contact
+    flash[:success] = "Tu correo ha sido enviado con éxito."
   end
 end

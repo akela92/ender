@@ -4,12 +4,14 @@ Rails.application.routes.draw do
   root                'static_pages#home'
   get    'help'    => 'static_pages#help'
   get    'about'   => 'static_pages#about'
-  get    'contact' => 'static_pages#contact'
+  #get    'contact' => 'static_pages#contact'
   get    'signup'  => 'users#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get 'loading' => 'static_pages#loading'
+  get 'contact', to: 'messages#new', as: 'contacto'
+post 'contact', to: 'messages#create'
   resources :users do
     member do
       get :following, :followers

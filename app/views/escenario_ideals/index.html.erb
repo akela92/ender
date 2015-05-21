@@ -28,10 +28,12 @@
   <div class="panel-footer">
 <div class="btn-toolbar" role="toolbar" aria-label="...">
   <%= link_to "Lanzar",   loading_path, class: "btn btn-success", :type => "button"%>
-
+  
   <%= link_to "Mostrar", escenario_ideal_path(escenario_ideal), class: "btn btn-default", :type => "button"%>  
+  <% if current_user.admin? %>
 <%= link_to 'Editar', edit_escenario_ideal_path(escenario_ideal), :class => "btn btn-default", :role => "button"%>
              <%= link_to 'Eliminar', escenario_ideal, method: :delete, data: { confirm: '¿Estás seguro/a?' }, :class => "btn btn-danger", :role => "button"%>
+   <% end %>          
   <%= link_to "Comprobar resultado", escenario_ideal_path(escenario_ideal), class: "btn btn-default", :type => "button"%> 
 </div>
   </div>
@@ -39,8 +41,9 @@
 </div>
 
 <% end %>
+<% if current_user.admin? %>
 <div class="btn-group btn-group-justified" role="group" aria-label="...">
   <%= link_to 'Nuevo Escenario', new_escenario_ideal_path, :class => "btn btn-primary btn-lg btn-justified", :type => "button"%>
 </div>
-
+<% end %>
 

@@ -19,19 +19,22 @@
   <div class="list-group-item">
     Dificultad <span class="badge"><%= @escenario_ideal.dificultad %></span> 
 </div>
-<!--<div class="list-group-item">
+<% if current_user.admin? %>
+<div class="list-group-item">
     <strong><h4 class="list-group-item-heading">Escript Máquinas</h4></strong>
     <p class="text-justify"><%= @escenario_ideal.script_maquinas %></p>
   </div>
 <div class="list-group-item">
     <strong><h4 class="list-group-item-heading">Mv array</h4></strong>
     <p class="text-justify"><%= @escenario_ideal.mv_array %></p>
-  </div>-->
+  </div>
+  <% end %>
   </div>
 </div>
 </div>
   </div>
 </div>
-
+<% if current_user.admin? %>
  <%= link_to 'Editar', edit_escenario_ideal_path(@escenario_ideal) %> |
+ <% end %>
 <%= link_to 'Atrás', escenario_ideals_path %>

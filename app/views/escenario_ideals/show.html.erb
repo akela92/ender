@@ -7,7 +7,8 @@
   <div class="panel-body">
 <div class="row">
 <div class="col-md-3">
- <%= image_tag "number1.jpg", class: "img-thumbnail"%></div>
+<%= image_tag @escenario_ideal.picture.url, class: "img-thumbnail" if @escenario_ideal.picture? %>
+ </div>
   <div class="col-md-9">
     <div class="list-group">
 

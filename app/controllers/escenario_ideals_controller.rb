@@ -35,8 +35,8 @@ class EscenarioIdealsController < ApplicationController
         #format.json { render :show, status: :created, location: @escenario_ideal }
       else
         flash[:danger] = "El escenario no se ha podido crear."
-        format.html { render :new }
-        format.json { render json: @escenario_ideal.errors, status: :unprocessable_entity }
+        #format.html { render :new }
+        #format.json { render json: @escenario_ideal.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -70,6 +70,6 @@ class EscenarioIdealsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def escenario_ideal_params
-      params.require(:escenario_ideal).permit(:nombre, :descripcion, :dificultad, :script_maquinas, :mv_array)
+      params.require(:escenario_ideal).permit(:nombre, :descripcion, :dificultad, :script_maquinas, :mv_array, :picture)
     end
 end

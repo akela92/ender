@@ -1,19 +1,7 @@
 <% provide(:title, 'Editar escenario') %>
-<%= form_for(@escenario_ideal) do |f| %>
+<%= form_for(@escenario_ideal, html: { multipart: true }) do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
-  <%#<% if @escenario_ideal.errors.any? %>
-   <%# <div id="error_explanation">
-      <h2><%= pluralize(@escenario_ideal.errors.count, "error") %> <%#prohibited this escenario_ideal from being saved:</h2>
-
-      <ul>
-      <% @escenario_ideal.errors.full_messages.each do |message| %>
-       <%# <li><%= message %><%#/li>
-      <% end %>
-      <%#</ul>
-    </div>
-  <% end %> 
-
-<div class="row">
+  <div class="row">
   <div class="col-md-6 col-md-offset-3">
   <div class="field">
     <%= f.label :nombre %><br>
@@ -35,6 +23,10 @@
     <%= f.label :mv_array %><br>
     <%= f.text_field :mv_array, class: 'form-control' %>
   </div>
+  <span class="picture">
+  <%= f.label :picture %><br>
+    <%= f.file_field :picture %>
+  </span>
   <div class="actions">
     <%= f.submit "Guardar cambios", class: "btn btn-primary" %>
   </div>

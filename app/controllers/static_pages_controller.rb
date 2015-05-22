@@ -1,3 +1,4 @@
+
 class StaticPagesController < ApplicationController
   
   def home
@@ -16,4 +17,15 @@ class StaticPagesController < ApplicationController
   def contact
     flash[:success] = "Tu correo ha sido enviado con éxito."
   end
+
+  def loading
+    
+    string = %x{/home/iratxe/Documentos/ender/app/assets/hola.sh}
+    if string.include? "Hola mundo"
+    flash[:success] = "Go to your #{view_context.link_to("profile page", help_path)}, and edit it!"
+  
+  end
+  end
 end
+
+ 

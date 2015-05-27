@@ -19,13 +19,21 @@ class StaticPagesController < ApplicationController
   end
 
   def loading
-    
     string = %x{/home/iratxe/Documentos/ender/app/assets/hola.sh}
-    if string.include? "Hola mundo"
-    flash[:success] = "Go to your #{view_context.link_to("profile page", help_path)}, and edit it!"
-  
-  end
+    if string.include? "ESCENARIO DESPLEGADO CON EXITO"
+    flash[:success] = "Es escenario se ha desplegado con éxito. ¡Descárgate los #{view_context.link_to("certificados", "/app/assets/Ejemplo.tar.gz")}, y empieza a practicar!"
+    #send_file 'http://ender.dacya.ucm.es/var/lib/one/escenarios/ES002/crt.zip'
+    #/var/lib/one/escenarios/ES002/crt.zip
+    end
   end
 end
 
- 
+
+#require 'open-uri'
+#require 'zlib'
+
+#open('tarball.tar', 'w') do |local_file|
+#  open('http://github.com/jashkenas/coffee-script/tarball/master/tarball.tar.gz') do |remote_file|
+#    local_file.write(Zlib::GzipReader.new(remote_file).read)
+#  end
+#end

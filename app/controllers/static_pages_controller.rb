@@ -22,8 +22,9 @@ class StaticPagesController < ApplicationController
     string = %x{/home/iratxe/Documentos/ender/app/assets/hola.sh}
     if string.include? "ESCENARIO DESPLEGADO CON EXITO"
     flash[:success] = "Es escenario se ha desplegado con éxito. ¡Descárgate los 
-    #{view_context.link_to("certificados", "#{Rails.root}/var/lib/one/escenarios/ES002/ctr.zip")}, y empieza a practicar!"
-    ##{Rails.root}/app/assets/prueba.zip
+    #{view_context.link_to("certificados", "/prueba.zip")}, y empieza a practicar!"
+    #/prueba.zip
+    ##{Rails.root}/var/lib/one/escenarios/ES002/ctr.zip
     end
   end
 end

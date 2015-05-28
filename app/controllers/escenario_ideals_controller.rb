@@ -31,12 +31,12 @@ class EscenarioIdealsController < ApplicationController
     respond_to do |format|
       if @escenario_ideal.save
         flash[:success] = "El escenario se ha creado con éxito."
-        #format.html { redirect_to @escenario_ideal, notice: 'Escenario ideal was successfully created.' }
-        #format.json { render :show, status: :created, location: @escenario_ideal }
+        format.html { redirect_to @escenario_ideal, notice: 'Escenario ideal was successfully created.' }
+        format.json { render :show, status: :created, location: @escenario_ideal }
       else
         flash[:danger] = "El escenario no se ha podido crear."
-        #format.html { render :new }
-        #format.json { render json: @escenario_ideal.errors, status: :unprocessable_entity }
+        format.html { render :new }
+        format.json { render json: @escenario_ideal.errors, status: :unprocessable_entity }
       end
     end
   end

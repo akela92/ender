@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   get 'loading' => 'static_pages#loading'
   get 'contact', to: 'messages#new', as: 'contacto'
-post 'contact', to: 'messages#create'
+  post 'contact', to: 'messages#create'
   resources :users do
     member do
       get :following, :followers

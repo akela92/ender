@@ -19,8 +19,12 @@ class StaticPagesController < ApplicationController
   end
 
   def loading
-    string = %x{/home/iratxe/Documentos/ender/app/assets/hola.sh}
-    if string.include? "ESCENARIO DESPLEGADO CON EXITO"
+    @escenario = Escenario.create(:id_escenario_ideal => '2', :id_user => current_user.id)
+    #@id_escenario_ideal
+    #Escenario.new(:id_escenario_ideal => '', :id_user => 'current_user.id')
+    string = %x{ender.dacya.ucm.es/var/lib/one/crea.sh}
+    #ender.dacya.ucm.es/var/lib/one/crea.sh
+    if string.include? "FIN"
     flash[:success] = "Es escenario se ha desplegado con éxito. ¡Descárgate los 
     #{view_context.link_to("certificados", "/prueba.zip")}, y empieza a practicar!"
     #/prueba.zip

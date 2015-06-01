@@ -24,7 +24,8 @@
 </div>
   </div>
 
-
+<% @current_escenario_ideal = escenario_ideal %>
+<% @id_escenario_ideal = @current_escenario_ideal.id %>
   <div class="panel-footer">
 <div class="btn-toolbar" role="toolbar" aria-label="...">
   <%= link_to "Lanzar",   loading_path, class: "btn btn-success", :type => "button"%>
@@ -45,3 +46,4 @@
 </div>
 
 
+<h1> <%= @id_escenario_ideal %>  </h1>

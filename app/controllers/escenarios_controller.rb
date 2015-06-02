@@ -17,7 +17,25 @@ class EscenariosController < ApplicationController
 
   # GET /escenarios/new
   def new
-    @escenario = Escenario.new
+    @escenario_ideal_id = params[:id_escenario_ideal] 
+    @user_id = params[:current_user]
+    @escenario = Escenario.create(:id_escenario_ideal => @escenario_ideal_id, :id_user => @user_id)
+     #Que un usuario no pueda lanzar un escenario 2 veces
+    #Mostrar escenario lanzado/no lanzado
+    #@escenario = EscenarioIdeal.find(params[:id])
+    #@current_escenario = Escenario.create(:id_escenario_ideal => @escenario_ideal.id, :id_user => current_user.id)
+    #system('su oneadmin -c "/var/lib/one/crea.sh ES001 2:1524:2 router.tmpl:victima.tmpl &"')
+    #@id_escenario_ideal
+    #Escenario.new(:id_escenario_ideal => '', :id_user => 'current_user.id')
+    #string = %x{ender.dacya.ucm.es/var/lib/one/crea.sh}
+    #ender.dacya.ucm.es/var/lib/one/crea.sh
+    #if string.include? "FIN"
+    #Mostrar el popup en la vista del escenario
+    flash[:success] = "Es escenario se ha desplegado con éxito. ¡Descárgate los 
+    #{view_context.link_to("certificados", "/prueba.zip")}, y empieza a practicar!"
+    #/prueba.zip
+    ##{Rails.root}/var/lib/one/escenarios/ES002/ctr.zip
+    #end
   end
 
   # GET /escenarios/1/edit

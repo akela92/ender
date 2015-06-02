@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-  get 'loading' => 'static_pages#loading'
-  post 'loading' => 'escenarios#create'
+  get 'loading' => 'escenarios#new'
+  #post 'loading' => 'escenarios#create'
   get 'contact', to: 'messages#new', as: 'contacto'
   post 'contact', to: 'messages#create'
   resources :users do

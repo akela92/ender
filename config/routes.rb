@@ -21,8 +21,7 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
-  resources :relationships,       only: [:create, :destroy]
-  resources :maquinas
+  resources :relationships,       only: [:create, :destroy]  
   resources :escenarios
   resources :escenario_ideals
 end

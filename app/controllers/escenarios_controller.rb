@@ -76,10 +76,12 @@ class EscenariosController < ApplicationController
   # DELETE /escenarios/1.json
   def destroy
     @escenario.destroy
-    respond_to do |format|
-      format.html { redirect_to escenarios_url, notice: 'Escenario was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    #respond_to do |format|
+     # format.html { redirect_to escenarios_url, notice: 'Escenario was successfully destroyed.' }
+      #format.json { head :no_content }
+    #end
+    flash[:success] = "Escenario parado con éxito"
+    redirect_to escenario_ideals_url
   end
 
   private

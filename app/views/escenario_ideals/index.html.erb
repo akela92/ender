@@ -23,17 +23,15 @@
 </div>
 </div>
   </div>
-  <div class="panel-footer">
-<div class="btn-toolbar" role="toolbar" aria-label="...">
-  <%= link_to "Lanzar",   new_escenario_path(id_escenario_ideal: escenario_ideal.id, current_user: current_user.id), class: "btn btn-success", :type => "button"%>
-   <%= link_to "Parar",   loading_path, class: "btn btn-danger", :type => "button"%>
+<div class="panel-footer">
+  <div class="btn-toolbar" role="toolbar" aria-label="...">
+ 
   
   <%= link_to "Mostrar", escenario_ideal_path(escenario_ideal), class: "btn btn-default", :type => "button"%>  
 <%= link_to 'Editar', edit_escenario_ideal_path(escenario_ideal), :class => "btn btn-default", :role => "button"%>
-             <%= link_to 'Eliminar', escenario_ideal, method: :delete, data: { confirm: '¿Estás seguro/a?' }, :class => "btn btn-danger", :role => "button"%>         
-  <%= link_to "Comprobar resultado", escenario_ideal_path(escenario_ideal), class: "btn btn-default", :type => "button"%> 
+             
+   </div>
 </div>
-  </div>
 
 </div>
 

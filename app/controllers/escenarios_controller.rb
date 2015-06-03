@@ -19,11 +19,14 @@ class EscenariosController < ApplicationController
   def new
     @escenario_ideal_id = params[:id_escenario_ideal] 
     @user_id = params[:current_user]
+    @escenario_ideal_script = [:script]
+    @escenario_ideal_mv = [:mv]
     @escenario = Escenario.create(:id_escenario_ideal => @escenario_ideal_id, :id_user => @user_id)
      #Que un usuario no pueda lanzar un escenario 2 veces
     #Mostrar escenario lanzado/no lanzado
     #@escenario = EscenarioIdeal.find(params[:id])
     #@current_escenario = Escenario.create(:id_escenario_ideal => @escenario_ideal.id, :id_user => current_user.id)
+    #system('su oneadmin -c "/var/lib/one/crea.sh ES001 #{@escenario_ideal_script} #{@escenario_ideal_mv}&"')
     #system('su oneadmin -c "/var/lib/one/crea.sh ES001 2:1524:2 router.tmpl:victima.tmpl &"')
     #@id_escenario_ideal
     #Escenario.new(:id_escenario_ideal => '', :id_user => 'current_user.id')

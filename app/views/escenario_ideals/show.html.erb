@@ -28,22 +28,22 @@
     <strong><h4 class="list-group-item-heading">Mv array</h4></strong>
     <p class="text-justify"><%= @escenario_ideal.mv_array %></p>
   </div>
-
+<% end %>
   </div>
  </div>
  </div>
   </div>
   <div class="panel-footer">
   <div class="btn-toolbar" role="toolbar" aria-label="...">
-  <%= link_to "Lanzar",  new_escenario_path(id_escenario_ideal: @escenario_ideal.id, current_user: current_user.id), class: "btn btn-success", :type => "button"%>
-
+  <%= link_to "Lanzar",  new_escenario_path(id_escenario_ideal: @escenario_ideal.id, current_user: current_user.id, script: @escenario_ideal.script_maquinas, mv: @escenario_ideal.mv_array), class: "btn btn-success", :type => "button"%>
+ <% if Escenario.exists?(id_escenario_ideal: @escenario_ideal.id, id_user: current_user.id)%>
   <%= link_to 'Parar', @escenario, method: :delete, data: { confirm: '¿Estás seguro/a?. Esto eliminará todo el progreso que hayas hecho hasta ahora.' }, :class => "btn btn-danger", :role => "button"%> 
-         
-  <%= link_to "Comprobar resultado", class: "btn btn-default", :type => "button"%> 
+ <%= link_to "Comprobar resultado", class: "btn btn-default", :type => "button"%> 
+ <% end %>
    </div>
 </div>
 </div>
-  <% end %>
+  
 <% if current_user.admin? %>
  <%= link_to 'Editar', edit_escenario_ideal_path(@escenario_ideal) %> |
  <% end %>

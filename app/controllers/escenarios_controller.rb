@@ -23,8 +23,8 @@ class EscenariosController < ApplicationController
     @escenario_ideal_mv = params[:mv]
     if !des=File.exist?("/var/lib/one/escenarios/"+@escenario_ideal_id+"")
       @escenario = Escenario.create(:id_escenario_ideal => @escenario_ideal_id, :id_user => @user_id)
-      @ruta="su oneadmin -c \"/var/lib/one/crea.sh "+@escenario.id+" "+@escenario_ideal_script+" "+@escenario_ideal_mv+" &\""
-      des=File.exist?("/var/lib/one/escenarios/"+@escenario.id+"/exito")  
+      @ruta="su oneadmin -c \"/var/lib/one/crea.sh "+@escenario.id.to_s+" "+@escenario_ideal_script+" "+@escenario_ideal_mv+" &\""
+      des=File.exist?("/var/lib/one/escenarios/"+@escenario.id.to_s+"/exito")  
       system(@ruta)
     end
     

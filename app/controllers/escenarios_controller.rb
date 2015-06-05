@@ -16,28 +16,29 @@ class EscenariosController < ApplicationController
   end
 
   # GET /escenarios/new
-  def new
+   def new
     @escenario_ideal_id = params[:id_escenario_ideal] 
     @user_id = params[:current_user]
     @escenario_ideal_script = params[:script]
     @escenario_ideal_mv = params[:mv]
-    if !des=File.exist?("/var/lib/one/escenarios/"+@escenario_ideal_id+"")
+    if !Escenario.exists?(id_escenario_ideal: @escenario_ideal_id, id_user: @user_id)
       @escenario = Escenario.create(:id_escenario_ideal => @escenario_ideal_id, :id_user => @user_id)
+   # if !des=File.exist?("/var/lib/one/escenarios/"+@escenario.id.to_s+"")
       @ruta="su oneadmin -c \"/var/lib/one/crea.sh "+@escenario.id.to_s+" "+@escenario_ideal_script+" "+@escenario_ideal_mv+" &\""
-      des=File.exist?("/var/lib/one/escenarios/"+@escenario.id.to_s+"/exito")  
       system(@ruta)
+    else
+      @escenario=Escenario.find_by(id_escenario_ideal: @escenario_ideal_id, id_user: @user_id )
     end
     
      #system(@ruta)
    
-    if des=File.exist?("/var/lib/one/escenarios/"+@escenario_ideal_id+"/exito")
+    if des=File.exist?("/var/lib/one/escenarios/"+@escenario.id.to_s+"/exito")
     flash[:success] = "Es escenario se ha desplegado con éxito. ¡Descárgate los 
-    #{view_context.link_to("certificados", "/prueba.zip")}, y empieza a practicar!"
+    #{view_context.link_to("certificados", "/certificados/"+@escenario.id.to_s+".zip")}, y empieza a practicar!"
     #/prueba.zip
     ##{Rails.root}/var/lib/one/escenarios/ES002/ctr.zip
     end
   end
-
   # GET /escenarios/1/edit
   def edit
   end

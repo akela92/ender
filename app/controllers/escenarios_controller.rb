@@ -77,6 +77,8 @@ class EscenariosController < ApplicationController
   # DELETE /escenarios/1.json
   def destroy
     @escenario.destroy
+     @ruta="su oneadmin -c \"/var/lib/one/cierre.sh "+@escenario.id.to_s+" &\""
+      system(@ruta)
     #respond_to do |format|
      # format.html { redirect_to escenarios_url, notice: 'Escenario was successfully destroyed.' }
       #format.json { head :no_content }

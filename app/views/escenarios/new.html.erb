@@ -14,16 +14,16 @@ setInterval('autoRefresh()', 5000); // this will reload page after every 5 secou
         <h1>Cargando</h1>
         <p>Estamos cargando el escenario, por favor espera unos instantes.</p>
         <div class="progress">
-		<% if des=File.exist?("/var/lib/one/escenarios/"+@escenario_ideal_id+"/dir") %>
-                	<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
-		<% elsif des=File.exist?("/var/lib/one/escenarios/"+@escenario_ideal_id+"/nodo") %>
-			<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"></div>
-		<% elsif des=File.exist?("/var/lib/one/escenarios/"+@escenario_ideal_id+"/desp") %>
-			<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
-	        <% elsif des=File.exist?("/var/lib/one/escenarios/"+@escenario_ideal_id+"/confg") %>
+   <% if des=File.exist?("/var/lib/one/escenarios/"+@escenario.id.to_s+"/dir") %>
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
+                <% elsif des=File.exist?("/var/lib/one/escenarios/"+@escenario.id.to_s+"/nodo") %>
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"></div>
+                <% elsif des=File.exist?("/var/lib/one/escenarios/"+@escenario.id.to_s+"/desp") %>
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
+                <% elsif des=File.exist?("/var/lib/one/escenarios/"+@escenario.id.to_s+"/confg") %>
                         <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%"></div>
-               <% elsif des=File.exist?("/var/lib/one/escenarios/"+@escenario_ideal_id+"/exito") %>
-                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>  
+               <% elsif des=File.exist?("/var/lib/one/escenarios/"+@escenario.id.to_s+"/exito") %>
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
                <% end %>
         </div>
         <% if des=File.exist?("/var/lib/one/escenarios/"+@escenario_ideal_id+"/fail") %>

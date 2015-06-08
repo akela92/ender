@@ -41,9 +41,9 @@
  <% if Escenario.exists?(id_escenario_ideal: @escenario_ideal.id, id_user: current_user.id)%>
   <%= link_to 'Parar', escenario_path(@escenario), method: :delete,   data: {
           confirm: '¿Estás seguro/a?',
-          confirmButtonText: 'Sí',
-          cancelButtonText: 'Mejor no',
-          sweetAlertType: "danger",
+          :confirmButtonText => 'Sí',
+          cancelButtonText: "Mejor no",
+          type: "danger",
           text: 'Esto eliminará todo el progreso que hayas hecho hasta ahora.'
         }  ,  :class => "btn btn-danger", :role => "button"%> 
  <%= link_to "Comprobar resultado", class: "btn btn-default", :type => "button"%> 

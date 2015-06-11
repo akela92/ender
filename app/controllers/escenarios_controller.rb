@@ -15,6 +15,11 @@ class EscenariosController < ApplicationController
   def show
   end
 
+  # Comprueba que el fichero que sube el usuario es igual que el del escenario ideal
+  def comprobar
+    
+  end
+
   # GET /escenarios/new
    def new
     @escenario_ideal_id = params[:id_escenario_ideal] 
@@ -35,8 +40,7 @@ class EscenariosController < ApplicationController
     if des=File.exist?("/var/lib/one/escenarios/"+@escenario.id.to_s+"/exito")
     flash[:success] = "Es escenario se ha desplegado con éxito. ¡Descárgate los 
     #{view_context.link_to("certificados", "/certificados/"+@escenario.id.to_s+".zip")}, y empieza a practicar!"
-    #/prueba.zip
-    ##{Rails.root}/var/lib/one/escenarios/ES002/ctr.zip
+    flash[:info] = "#{view_context.link_to("Volver al escenario.", escenario)}" 
     end
   end
   # GET /escenarios/1/edit
@@ -62,15 +66,17 @@ class EscenariosController < ApplicationController
   # PATCH/PUT /escenarios/1
   # PATCH/PUT /escenarios/1.json
   def update
-    respond_to do |format|
+    #respond_to do |format|
       if @escenario.update(escenario_params)
-        format.html { redirect_to @escenario, notice: 'Escenario was successfully updated.' }
-        format.json { render :show, status: :ok, location: @escenario }
+        flash[:success] = "El escenario se ha actualizado con éxito."
+        redirect_to @escenario
+        #format.html { redirect_to @escenario, notice: 'Escenario was successfully updated.' }
+        #format.json { render :show, status: :ok, location: @escenario }
       else
         format.html { render :edit }
         format.json { render json: @escenario.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   # DELETE /escenarios/1
@@ -95,6 +101,7 @@ class EscenariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def escenario_params
-      params.require(:escenario).permit(:id_escenario_ideal, :id_user)
+      params.require(:escenario).permit(:id_escenario_ideal, :id_user, :picture)
+
     end
 end

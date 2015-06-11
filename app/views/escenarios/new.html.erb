@@ -8,6 +8,7 @@ window.location = window.location.href;
 
 setInterval('autoRefresh()', 5000); // this will reload page after every 5 secounds; Method I
 </script>
+<% @texto = "Este proceso puede tardar unos minutos"%>
  <% if des=File.exist?("/var/lib/one/escenarios/"+@escenario.id.to_s+"/dir") %>
         <% @texto="Buscando nodo" %> <% @pos="10" %>
  <% elsif des=File.exist?("/var/lib/one/escenarios/"+@escenario.id.to_s+"/nodo") %>

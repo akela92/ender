@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'loading' => 'escenarios#new'
   get 'contact', to: 'messages#new', as: 'contacto'
   post 'contact', to: 'messages#create'
-  get 'comprobar' => 'escenarios#show'
+  get 'comprobar' => 'escenarios#comprobar'
   resources :users do
     member do
       get :following, :followers

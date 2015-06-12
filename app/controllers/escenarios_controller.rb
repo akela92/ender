@@ -13,11 +13,14 @@ class EscenariosController < ApplicationController
   # GET /escenarios/1
   # GET /escenarios/1.json
   def show
+    flash[:success] = "Tu resultado es correcto."
+    flash[:error] = "Tu resultado NO es correcto."
   end
 
   # Comprueba que el fichero que sube el usuario es igual que el del escenario ideal
   def comprobar
-    
+    #flash[:success] = "Tu resultado es correcto."
+    #flash[:error] = "Tu resultado NO es correcto."
   end
 
   # GET /escenarios/new

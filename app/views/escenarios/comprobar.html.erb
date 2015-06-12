@@ -4,7 +4,7 @@
   <%= render 'shared/error_messages', object: f.object %>
 <span class="picture">
 <%= f.file_field_tag 'picture' %>
-    <%= f.file_field :fichero, accept: 'image/jpeg,image/gif,image/png' %>
+    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
   </span>
   <%= f.submit "Publicar", class: "btn btn-primary" %>
   

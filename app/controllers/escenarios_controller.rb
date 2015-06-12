@@ -13,14 +13,11 @@ class EscenariosController < ApplicationController
   # GET /escenarios/1
   # GET /escenarios/1.json
   def show
-    flash[:success] = "Tu resultado es correcto."
-    flash[:error] = "Tu resultado NO es correcto."
   end
 
   # Comprueba que el fichero que sube el usuario es igual que el del escenario ideal
   def comprobar
-    #flash[:success] = "Tu resultado es correcto."
-    #flash[:error] = "Tu resultado NO es correcto."
+    
   end
 
   # GET /escenarios/new
@@ -43,7 +40,7 @@ class EscenariosController < ApplicationController
     if des=File.exist?("/var/lib/one/escenarios/"+@escenario.id.to_s+"/exito")
     flash[:success] = "Es escenario se ha desplegado con éxito. ¡Descárgate los 
     #{view_context.link_to("certificados", "/certificados/"+@escenario.id.to_s+".zip")}, y empieza a practicar!"
-    flash[:info] = "#{view_context.link_to("Volver al escenario.", escenario)}" 
+    flash[:info] = "#{view_context.link_to("Volver al escenario.", @escenario)}" 
     end
   end
   # GET /escenarios/1/edit

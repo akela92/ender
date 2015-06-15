@@ -13,8 +13,12 @@ class EscenariosController < ApplicationController
   # GET /escenarios/1
   # GET /escenarios/1.json
   def show
-    @ruta="su oneadmin -c \"/var/lib/one/validacion.sh "+@escenario.id.to_s+" &\""
-    system(@ruta)
+    #@ruta="su oneadmin -c \"/var/lib/one/validacion.sh "+@escenario.id.to_s+" &\""
+    #if system(@ruta) == true
+     # flash[:success] = "¡Escenario superado! #{view_context.link_to("Volver al escenario.", @escenario)}" 
+    #else
+      #flash[:danger] = "Lo sentimos, pero tu fichero no es correcto."
+    #end
   end
 
   # Comprueba que el fichero que sube el usuario es igual que el del escenario ideal
@@ -70,8 +74,12 @@ class EscenariosController < ApplicationController
   def update
     #respond_to do |format|
       if @escenario.update(escenario_params)
-        flash[:success] = "El archivo se ha subido con éxito."
-        redirect_to @escenario
+        @ruta="su oneadmin -c \"/var/lib/one/validacion.sh "+@escenario.id.to_s+" &\""
+      if system(@ruta) == true
+        flash[:success] = "¡Escenario superado! #{view_context.link_to("Volver al escenario.", @escenario)}" 
+      else
+        flash[:danger] = "Lo sentimos, pero tu fichero no es correcto."
+      end
         #format.html { redirect_to @escenario, notice: 'Escenario was successfully updated.' }
         #format.json { render :show, status: :ok, location: @escenario }
       else

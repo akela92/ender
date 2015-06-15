@@ -68,7 +68,7 @@ class EscenariosController < ApplicationController
   def update
     #respond_to do |format|
       if @escenario.update(escenario_params)
-        flash[:success] = "El escenario se ha actualizado con éxito."
+        flash[:success] = "El archivo se ha subido con éxito."
         redirect_to @escenario
         #format.html { redirect_to @escenario, notice: 'Escenario was successfully updated.' }
         #format.json { render :show, status: :ok, location: @escenario }
@@ -101,7 +101,7 @@ class EscenariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def escenario_params
-      params.require(:escenario).permit(:id_escenario_ideal, :id_user, :picture)
+      params.require(:escenario).permit(:id_escenario_ideal, :id_user, :fichero)
 
     end
 end

@@ -2,22 +2,12 @@
 <h1>Comprobar resultado</h1>
 <%= form_for(@escenario, html: { multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-<span class="picture">
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+<span class="field">
+    <%= f.file_field :fichero, accept: 'text/html' %>
   </span>
   <%= f.submit "Comprobar resultado", class: "btn btn-primary" %>
   
 <% end %>
-
-<script type="text/javascript">
-  $('#escenario_picture').bind('change', function() {
-    var size_in_megabytes = this.files[0].size/1024/1024;
-    if (size_in_megabytes > 5) {
-      alert('El tamaño máximo del fichero son 5MB. Por favor elige un fichero más pequeño.');
-    }
-  });
-</script>
-
 
 <%= link_to 'Edit', edit_escenario_path(@escenario) %> |
 <%= link_to 'Back', escenarios_path %>

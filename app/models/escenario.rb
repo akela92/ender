@@ -3,5 +3,5 @@ class Escenario < ActiveRecord::Base
   has_one :escenario_ideal
   #has_many :maquina
   belongs_to :user
-  mount_uploader :picture, PictureUploader
+  mount_uploader :fichero, FicheroUploader
 end

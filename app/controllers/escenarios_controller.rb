@@ -13,6 +13,8 @@ class EscenariosController < ApplicationController
   # GET /escenarios/1
   # GET /escenarios/1.json
   def show
+    @ruta="su oneadmin -c \"/var/lib/one/validacion.sh "+@escenario.id.to_s+" &\""
+    system(@ruta)
   end
 
   # Comprueba que el fichero que sube el usuario es igual que el del escenario ideal

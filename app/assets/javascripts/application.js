@@ -16,4 +16,4 @@
 //= require turbolinks
 //= require_tree .
 //= require sweet-alert
-////= require sweet-alert-confirm
+//= require sweet-alert-confirm

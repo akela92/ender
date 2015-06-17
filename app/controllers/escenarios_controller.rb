@@ -82,11 +82,11 @@ class EscenariosController < ApplicationController
       end
         #format.html { redirect_to @escenario, notice: 'Escenario was successfully updated.' }
         #format.json { render :show, status: :ok, location: @escenario }
-      else
-        format.html { render :edit }
-        format.json { render json: @escenario.errors, status: :unprocessable_entity }
+      #else
+       # format.html { render :edit }
+        #format.json { render json: @escenario.errors, status: :unprocessable_entity }
       end
-    #end
+    redirect_to @escenario
   end
 
   # DELETE /escenarios/1

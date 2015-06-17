@@ -51,9 +51,13 @@
    </div>
 </div>
 </div>
-  
+  <nav>
+  <ul class="pager">
 <% if current_user.admin? %>
- <%= link_to 'Editar', edit_escenario_ideal_path(@escenario_ideal) %> |
+
+ <%= link_to 'Editar', edit_escenario_ideal_path(@escenario_ideal) %> 
  <% end %>
-<%= link_to 'Atrás', escenario_ideals_path %>
- 
+
+    <li class="previous"><%= link_to '    Atrás', escenario_ideals_path, class: "fa fa-arrow-left" %></li>
+  </ul>
+</nav>

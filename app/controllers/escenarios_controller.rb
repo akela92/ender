@@ -43,7 +43,7 @@ class EscenariosController < ApplicationController
     
      #system(@ruta)
    
-    if des=File.exist?("/var/lib/one/escenarios/"+@escenario.id.to_s+"/exito")
+    if @escenario.estado.to_s == "exito"
     flash[:success] = "Es escenario se ha desplegado con éxito. ¡Descárgate los 
     #{view_context.link_to("certificados", "/certificados/"+@escenario.id.to_s+".zip")}, y empieza a practicar!"
     flash[:info] = "#{view_context.link_to("Volver al escenario.", @escenario)}" 
@@ -73,20 +73,25 @@ class EscenariosController < ApplicationController
   # PATCH/PUT /escenarios/1.json
   def update
     #respond_to do |format|
-      if @escenario.update(escenario_params)
-        @ruta="su oneadmin -c \"/var/lib/one/validacion.sh "+@escenario.id.to_s+" &\""
-      if @escenario.estado.to_s == "sup"
-        flash[:success] = "¡Escenario superado! #{view_context.link_to("Volver al escenario.", @escenario)}" 
-      else
-        flash[:danger] = "Lo sentimos, pero tu fichero no es correcto."
-      end
+    if @escenario.update(escenario_params)
+        @ruta="su oneadmin -c \"/var/lib/one/validacion.sh "+@escenario.id.to_s+" \""
+	      system(@ruta) 
+	      @escenario=Escenario.find_by(id: @escenario.id )
+	      if @escenario.estado.to_s == "sup"
+        	flash[:success] = "¡Escenario superado! " #{view_context.link_to("Volver al escenario.", @escenario)}" 
+    		  @ruta="su oneadmin -c \"/var/lib/one/cierre.sh "+@escenario.id.to_s+" &\""
+      		system(@ruta)
+      		redirect_to escenario_ideals_url
+	      else
+        	flash[:danger] = "Lo sentimos, pero tu fichero no es correcto."
+		      redirect_to @escenario
+        end 
         #format.html { redirect_to @escenario, notice: 'Escenario was successfully updated.' }
         #format.json { render :show, status: :ok, location: @escenario }
       #else
        # format.html { render :edit }
         #format.json { render json: @escenario.errors, status: :unprocessable_entity }
-      end
-    redirect_to @escenario
+    end
   end
 
   # DELETE /escenarios/1

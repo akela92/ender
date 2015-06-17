@@ -75,7 +75,7 @@ class EscenariosController < ApplicationController
     #respond_to do |format|
       if @escenario.update(escenario_params)
         @ruta="su oneadmin -c \"/var/lib/one/validacion.sh "+@escenario.id.to_s+" &\""
-      if system(@ruta) == true
+      if @escenario.estado.to_s == "sup"
         flash[:success] = "¡Escenario superado! #{view_context.link_to("Volver al escenario.", @escenario)}" 
       else
         flash[:danger] = "Lo sentimos, pero tu fichero no es correcto."

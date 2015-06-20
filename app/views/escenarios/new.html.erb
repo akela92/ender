@@ -1,0 +1,36 @@
+<% provide(:title, 'Cargando') %>
+<script>
+
+function autoRefresh()
+{
+window.location = window.location.href;
+}
+
+setInterval('autoRefresh()', 5000); // this will reload page after every 5 secounds; Method I
+</script>
+<% @des=@escenario.estado.to_s %>
+<% @texto = "Este proceso puede tardar unos minutos"%>
+ <% if @des=="dir" %>
+        <% @texto="Buscando nodo" %> <% @pos="10" %>
+ <% elsif @des=="nodo" %>
+        <% @texto="Desplegando maquinas" %> <% @pos="20" %>
+ <% elsif @des=="desp" %>
+        <% @texto="Configurando VPN" %> <% @pos="80" %>
+ <% elsif @des=="confg" %>
+        <% @texto="Generando archivos de conexion VPN" %> <% @pos="90" %>
+ <% elsif @des=="exito" %>
+        <% @texto="Escenario desplegado con exito" %> <% @pos="100" %>
+ <% end %>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Cargando</h1>
+        <p>Estamos cargando el escenario: <%= @texto %>.</p>
+        <div class="progress">
+           <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="<%= @pos %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @pos %>%"></div>
+        </div>
+        <% if @des=="fail" %>
+                        <h1>Error al desplegar el escenario</h1>
+        <% end %>
+     </div>
+   </div>
+~                      

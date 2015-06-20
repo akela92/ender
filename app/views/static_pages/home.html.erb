@@ -1,0 +1,114 @@
+<% if logged_in? %>
+<% provide(:title, 'Usuario') %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>Micropost Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+
+
+<% provide(:title, "Home") %>
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+ <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+      <div class="carousel-inner">
+        <div class="item">
+          <%= image_tag "seguridad1.jpg", class: "media-object"%>
+          <div class="container">
+            <div class="carousel-caption">
+            </div>
+          </div>
+        </div>
+        <div class="item ">
+          <%= image_tag "seguridad2.jpg", class: "media-object"%>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Cloud Computing</h1>
+              <p class="lead">La nube es la nueva forma optimizada de prestación de servicios para el tratamiento de la información.</p>
+              
+            </div>
+          </div>
+        </div>
+        <div class="item active">
+          <%= image_tag "seguridad3.jpg", class: "media-object"%>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Ciberseguridad</h1>
+
+              <p class="lead">La seguridad IT es una de las grandes preocupaciones de la sociedad del siglo XXI, tanto a nivel corporativo como a nivel particular.</p>
+              <%= link_to "Regístrate en Ender", signup_path, class: "btn btn-large btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="http://getbootstrap.com/examples/carousel/#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <a class="right carousel-control" href="http://getbootstrap.com/examples/carousel/#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Siguiente</span>
+      </a>
+    </div><!-- /.carousel -->
+</br>
+</br>
+
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+
+<div class="container marketing">
+
+      <h1>Tecnologías utilizadas</h1>
+       <hr class="featurette-divider">
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+    <div class="col-md-4 text-center">
+    <%= image_tag "ruby.png", size: "140x140"%>
+      <h2>Ruby</h2>
+    </div>
+    <div class="col-md-4 text-center">
+      <%= image_tag "opennebula.png", size: "205x140"%>
+      <h2>Open Nebula</h2>
+    </div>
+    <div class="col-md-4 text-center">
+      <%= image_tag "github.png", size: "140x140"%>
+      <h2>GitHub</h2>
+    </div>
+
+
+  </div><!-- /.row -->
+  </br>
+ <div class="row">
+
+    <div class="col-md-4 text-center">
+      <%= image_tag "bootstrap.png", size: "140x140"%>
+      <h2>Bootstrap</h2>
+    </div>
+     <div class="col-md-4 text-center">
+      <%= image_tag "rails.png", size: "110x140"%>
+      <h2>Rails</h2>
+    </div>
+    <div class="col-md-4 text-center">
+      <%= image_tag "openvpn.png", size: "140x140"%>
+      <h2>OpenVPN</h2>
+    </div>
+</div>
+   
+<% end %>

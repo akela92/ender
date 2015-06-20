@@ -1,0 +1,44 @@
+<% provide(:title, 'Escenarios') %>
+<h1>Escenarios</h1>
+<% @escenario_ideals.each do |escenario_ideal| %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title"><%=escenario_ideal.nombre %></h2>
+  </div>
+  <div class="panel-body">
+<div class="row">
+<div class="col-md-3">
+<%= image_tag escenario_ideal.picture.url, class: "img-thumbnail" if escenario_ideal.picture? %></div>
+  <div class="col-md-9">
+    <div class="list-group">
+
+  <div class="list-group-item">
+    <!--<h4 class="list-group-item-heading">Descripción</h4>-->
+    <p class="text-justify"><%= escenario_ideal.descripcion %></p>
+  </div>
+  <div class="list-group-item">
+    Dificultad <span class="badge"><%= escenario_ideal.dificultad %></span> 
+</div>
+  </div>
+</div>
+</div>
+  </div>
+<div class="panel-footer">
+  <div class="btn-toolbar" role="toolbar" aria-label="...">
+ 
+  
+  <%= link_to "Mostrar", escenario_ideal_path(escenario_ideal), class: "btn btn-default", :type => "button"%><% if current_user.admin? %>
+<%= link_to 'Editar', edit_escenario_ideal_path(escenario_ideal), :class => "btn btn-default", :role => "button"%>
+        <% end %>     
+   </div>
+</div>
+
+</div>
+
+<% end %>
+<% if current_user.admin? %>
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <%= link_to 'Nuevo Escenario', new_escenario_ideal_path, :class => "btn btn-primary btn-lg btn-justified", :type => "button"%>
+</div>
+<% end %>
+

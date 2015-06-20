@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  descipcion: MyText
+  dificultad: 1
+  script_maquinas: MyText
+  mv_array: MyString
+
+two:
+  nombre: MyString
+  descipcion: MyText
+  dificultad: 1
+  script_maquinas: MyText
+  mv_array: MyString

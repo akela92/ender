@@ -1,0 +1,35 @@
+<% provide(:title, 'Editar escenario') %>
+<%= form_for(@escenario_ideal, html: { multipart: true }) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+  <div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br>
+    <%= f.text_area :descripcion, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :dificultad %><br>
+    <%= f.number_field :dificultad, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :script_maquinas %><br>
+    <%= f.text_area :script_maquinas, class: 'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :mv_array %><br>
+    <%= f.text_field :mv_array, class: 'form-control' %>
+  </div>
+  <span class="picture">
+  <%= f.label :picture %><br>
+    <%= f.file_field :picture %>
+  </span>
+  <div class="actions">
+    <%= f.submit "Guardar cambios", class: "btn btn-primary" %>
+  </div>
+  </div>
+  </div>
+<% end %>
